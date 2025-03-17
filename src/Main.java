@@ -138,5 +138,155 @@ public class Main {
 
         //int checkNull = null; => it can't be null
 
+        //Type casting is when you assign a value of one primitive data type to another type.
+        //In Java, there are two types of casting:
+        //Widening Casting (automatically) - converting a smaller type to a larger type size
+        //byte -> short -> char -> int -> long -> float -> double
+        //Narrowing Casting (manually) - converting a larger type to a smaller size type
+        //double -> float -> long -> int -> char -> short -> byte
+
+        int myNewInt = 9;
+        double myNewDouble = myNewInt; //Automatic casting: into to double
+        System.out.println(myNewInt); //Outputs 9
+        System.out.println(myNewDouble); //Outputs 9.0
+
+        //Narrowing casting must be done manually by placing the type in
+        //parentheses () in front of the value:
+        double myManuallyDouble = 9.78d;
+        int myManuallyInt = (int) myManuallyDouble; //Manual casting: double to int
+        System.out.println(myManuallyDouble); //Outputs 9.78
+        System.out.println(myManuallyInt); //Outputs 9
+
+        //real life example
+        //set the maximum possible score in the game to 500
+        int maxScore = 500;
+
+        //the actual score of the user
+        int userScore = 423;
+
+        //Calculate the percentage of the user's score in relation to the maximum
+        //available score.
+        //Convert userScore to float to make sure that the division is accurate.
+        float percentage = (float) userScore/maxScore * 100.0f;
+
+        System.out.println("User's percentage is: " + percentage);
+
+        //Java divides the operators into the following groups:
+        //Arithmetic operators
+        //Assignment operators
+        //Comparison operators
+        //Logical operators
+        //Bitwise operators
+
+        int q = 5;
+        q += 10;
+        System.out.println("q = " + q);
+
+        int ab = 1, bc = 2;
+        System.out.println(ab < bc);
+
+        String txt = "ABCDEFGHIJKLMNOPQRS";
+        System.out.println("The length of the txt string is: " + txt.length());
+
+        String txt1 = "Hello World";
+        System.out.println(txt1.toUpperCase());
+        System.out.println(txt1.toLowerCase());
+
+        String txt2 = "Please locate where 'locate' occurs!";
+        System.out.println(txt2.indexOf("locate"));
+
+        String firstName1 = "John ";
+        String lastName1 = "Doe";
+        System.out.println(firstName1.concat(lastName1));
+
+        String abc = "10";
+        int cba = 20;
+        String bac = abc + cba;
+        System.out.println("abc + cba = " + bac);
+
+        String escape = "These are \"quotes\".";
+        System.out.println(escape);
+
+        System.out.println("Maxim between " + ab + " and " + bc + " is " + Math.max(ab, bc) + ".");
+
+        float randomNum = (float)(Math.random() * 101f); //0 to 100 if I use int
+        System.out.println(randomNum);
+
+        System.out.println(cba == 20);
+
+        int myAge = 25;
+        int votingAge = 18;
+        if (myAge >= votingAge) {
+            System.out.println("Old enough to vote!");
+        } else {
+            System.out.println("Not old enough to vote!");
+        }
+
+        //There is also a shorthand if else, which is known as the ternary operator
+        //because it consists of three operands.
+        //It can be used to replace multiple lines of code with a single line, and
+        //is most often used to replace simple if else statements:
+        //Syntax
+        //variable = (condition) ? expressionTrue : expressionFalse;
+        int time = 20;
+        if (time < 18) {
+            System.out.println("Good day.");
+        } else {
+            System.out.println("Good evening.");
+        }
+
+        //the equivalent would be:
+        int time1 = 21;
+        String result = (time1 < 18) ? "Good day." : "Good evening.";
+        System.out.println(result);
+
+        int doorCode = 1337;
+
+        if (doorCode == 1337) {
+            System.out.println("Correct code. The door is now open.");
+        } else {
+            System.out.println("Wrong code. The door remains closed.");
+        }
+        //Instead of writing many if..else statements, you can use the switch statement.
+        //The switch statement selects one of many code blocks to be executed:
+        //Syntax
+        /*
+        switch(expression) {
+            case x:
+                // code block
+                break;
+            case y:
+                // code block
+                break;
+            default:
+                // code block
+        }
+        */
+
+        int day = 4;
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+        }
+
     }
 }
