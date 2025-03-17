@@ -105,7 +105,7 @@ public class Main {
         System.out.println("66 ASCII code: " + myVar2);
         System.out.println("67 ASCII code: " + myVar3);
 
-        //Create variables of different data tyes
+        //Create variables of different data types
         int items = 50;
         float costPerItem = 9.99f;
         float totalCost = items + costPerItem;
