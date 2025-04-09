@@ -27,11 +27,11 @@ public class Nota {
         return this.valoare;
     }
 
-    void setDenumire(String newDenumire) {
+    public void setDenumire(String newDenumire) {
         this.denumire = newDenumire;
     }
 
-    void setValoare(int newValoare) {
+    public void setValoare(int newValoare) {
         this.valoare = newValoare;
     }
 
