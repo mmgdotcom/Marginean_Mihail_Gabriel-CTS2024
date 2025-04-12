@@ -1,20 +1,16 @@
 package intalnire_1_8_martie_4;
 
-public class Nota {
-    String denumire;
-    int valoare;
+//How do we make a class immutable in Java?
+//Here are the exact steps:
+//Make all fields private and final
+//Remove all setters
+//Initialize all fields through constructor(s)
+//Do not allow subclasses to override behavior (optional but recommended — make class final)
+//Provide only getters
 
-    //constructor fara parametri
-    public Nota() {
-        this.denumire = "";
-        this.valoare = 0;
-    }
-
-    //constructor cu un parametru
-    public Nota(String denumire) {
-        this.denumire = denumire;
-        this.valoare = 0;
-    }
+final public class Nota implements Comparable<Nota>{
+    private final String denumire;
+    private final int valoare;
 
     //constructor cu doi parametri
     public Nota(String denumire, int valoare) {
@@ -30,17 +26,13 @@ public class Nota {
         return this.valoare;// = valoare;
     }
 
-    public Nota setdenumire(String denumire) {
-        this.denumire = denumire;
-        return this;
-    }
-
-    public Nota setValoare(int valoare) {
-        this.valoare = valoare;
-        return this;
+    @Override public int compareTo(Nota altaNota) {
+        //return this.denumire.compareToIgnoreCase(altaNota.denumire);
+        return this.denumire.compareTo(altaNota.denumire);
     }
 
     @Override public String toString() {
         return "denumire: " + denumire + "; valoare: " + valoare;
     }
+
 }
