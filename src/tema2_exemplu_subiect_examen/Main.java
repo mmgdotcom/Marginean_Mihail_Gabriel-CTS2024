@@ -62,6 +62,31 @@ public class Main {
         writer.close();
     }
 
+    public static double calculeazaValoareStoc(List<Produs> produse, List<Tranzactie> tranzactii){
+        Map<Integer, Integer> stocuri = new HashMap<>();
+
+        for (Tranzactie t : tranzactii) {
+            int cod = t.getCodProdus();
+            int cant = t.getCantitate();
+            String tip = t.getTip();
+
+            if (tip.equalsIgnoreCase("intrare")) {
+                stocuri.put(cod, stocuri.getOrDefault(cod, 0) + cant);
+            } else if (tip.equalsIgnoreCase("iesire")) {
+                stocuri.put(cod, stocuri.getOrDefault(cod, 0) - cant);
+            }
+        }
+
+        double total = 0.0;
+
+        for (Produs p : produse) {
+            int stoc = stocuri.getOrDefault(p.getCodProdus(), 0);
+            total += stoc * p.getPret();
+        }
+
+        return total;
+    }
+
     public static void main(String[] args) throws IOException {
         List<Produs> produse = citesteProduse("C:\\Users\\User\\IdeaProjects\\Activitate cts\\src\\tema2_exemplu_subiect_examen\\date\\subiect1\\produse.txt");
         List<Tranzactie> tranzactii = citesteTranzactii("C:\\Users\\User\\IdeaProjects\\Activitate cts\\src\\tema2_exemplu_subiect_examen\\date\\subiect1\\tranzactii.json");
@@ -88,5 +113,8 @@ public class Main {
         }
 
         scrieRaport(produse, tranzactii, "C:/Users/User/IdeaProjects/Activitate cts/src/tema2_exemplu_subiect_examen/date/subiect1/lista.txt");
+
+        double valoareTotala = calculeazaValoareStoc(produse, tranzactii);
+        System.out.printf("\nValoarea totală a stocurilor: %.2f RON%n", valoareTotala);
     }
 }

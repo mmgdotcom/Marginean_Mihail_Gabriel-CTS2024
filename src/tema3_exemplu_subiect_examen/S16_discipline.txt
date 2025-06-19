@@ -1,0 +1,6 @@
+1,Antreprenoriat in comert turism si servicii,optional
+2,Economia informatiei digitale cu aplicatii in afaceri,optional
+3,Managementul riscului in afaceri internationale,obligatoriu
+4,Programare in Java,obligatoriu
+5,SGBD Oracle,optional
+6,Analiza economica,obligatoriu
